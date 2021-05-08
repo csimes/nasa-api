@@ -2,3 +2,11 @@
     height: 500px;
     width: 700px; 
 }
+
+h1 {
+    font-family: 'Rubik', sans-serif;
+}
+
+.date-search, p {
+    font-family: 'Poppins', sans-serif;
+}

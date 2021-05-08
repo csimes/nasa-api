@@ -1,7 +1,7 @@
 const baseURL = "https://api.nasa.gov/planetary/apod?";
 const k = "nu9FFGClZXH2BcJczfOVerPBwSZdLevxhhOrHTN6";
 const date = document.querySelector(".date");
-const submitBtn = document.querySelector(".submit-btn");
+const submitBtn = document.querySelector(".btn btn-primary");
 const section = document.querySelector(".display-details");
 // const nav = document.querySelector('nav');
 // const nextBtn = document.querySelector('.next');
@@ -33,14 +33,13 @@ async function getResults() {
   const displayTitle = document.createElement("p")
   const displayExplanation = document.createElement("p"); 
   const dateInfo = data.date;
+  console.log(dateInfo)
   const convertDate = new Date(dateInfo);
+  console.log(convertDate)
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
-  const fullDate = convertDate.toLocaleDateString("default", options);
-  // const day = convertDate.getUTCDate();
-  // const month = convertDate.getUTCMonth() + 1;
-  // const year = convertDate.getUTCFullYear();
-
-  // const fullDate = `${month} ${day}, ${year}`;
+  // const fullDate = convertDate.toLocaleDateString("default", options);
+  fullDate = convertDate.toUTCString();
+  console.log(fullDate);
 
 
   displayWrapper.setAttribute("class", "display-wrapper")
