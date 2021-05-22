@@ -18,21 +18,27 @@ async function getResults(e) {
 
   const displayWrapper = document.createElement("div");
   const displayTitle = document.createElement("h5")
-  const displayExplanation = document.createElement("p"); 
+  const displayExplanation = document.createElement("p");
   const dateInfo = data.date;
   const convertDate = new Date(dateInfo);
-  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'};
+  const options = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'UTC'
+  };
   let fullDate = convertDate.toLocaleDateString("default", options);
 
   displayWrapper.setAttribute("class", "display-wrapper");
   displayDate.setAttribute("class", "display-date");
   displayTitle.setAttribute("class", "title");
-  displayExplanation.setAttribute("class", "explanation"); 
-  
+  displayExplanation.setAttribute("class", "explanation");
+
   displayDate.innerText = fullDate;
   displayTitle.innerText = data.title;
-  displayExplanation.innerText = data.explanation; 
-  
+  displayExplanation.innerText = data.explanation;
+
   displayDate.appendChild(displayTitle);
 
   if (data.media_type == "video") {
@@ -45,12 +51,12 @@ async function getResults(e) {
     displayImage.setAttribute("src", data.url)
     displayImage.setAttribute("class", "display-image")
     displayWrapper.appendChild(displayImage)
-    
+
   }
 
   displayWrapper.appendChild(displayExplanation)
   section.appendChild(displayWrapper);
-  
-  
+
+
   section.replaceChild(displayWrapper, section.firstElementChild);
 };
